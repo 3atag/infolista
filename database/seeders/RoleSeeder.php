@@ -17,6 +17,16 @@ class RoleSeeder extends Seeder
         ]);
 
         Role::create([
+            'id' => Role::INFECTOLOGO,
+            'name' => 'Infectologo',
+        ]);
+
+        Role::create([
+            'id' => Role::SUPERVISOR,
+            'name' => 'Supervisor',
+        ]);
+
+        Role::create([
             'id' => Role::PROFESIONAL,
             'name' => 'Profesional',
         ]);

@@ -12,34 +12,41 @@ class UserSeeder extends Seeder
 
     public function run(): void
     {
-        User::factory()->create([
+        $admin = User::factory()->create([
             'name' => 'Pintos Juan',
             'email' => 'jpintos@clinicahispano.com.ar',
-            'role_id' => Role::ADMIN,
         ]);
 
-        User::factory()->create([
-            'name' => 'Santiago Leonor',
-            'email' => 'lsantiago@clinicahispano.com.ar',
-            'role_id' => Role::PROFESIONAL,
+        $admin->roles()->attach(Role::ADMIN);
+
+
+        $lizzi = User::factory()->create([
+            'name' => 'Dra. Lizzi',
+            'email' => 'infectologia@clinicahispano.com.ar',
         ]);
 
-        User::factory()->create([
-            'name' => 'Rodriguez Forgues Fernando',
-            'email' => 'frforgues@clinicahispano.com.ar',
-            'role_id' => Role::PROFESIONAL,
+        $lizzi->roles()->attach(Role::INFECTOLOGO);
+
+        $carla = User::factory()->create([
+            'name' => 'Borda Carla',
+            'email' => 'enfermeria@clinicahispano.com.ar',
         ]);
 
-        User::factory()->create([
-            'name' => 'Hid Silvia',
-            'email' => 'shid@clinicahispano.com.ar',
-            'role_id' => Role::PROFESIONAL,
+        $carla->roles()->attach(Role::SUPERVISOR);
+
+
+        $adrian = User::factory()->create([
+            'name' => 'Laborde Adrian',
+            'email' => 'uti@clinicahispano.com.ar',
         ]);
 
-        User::factory()->create([
-            'name' => 'Calvete Viviana',
-            'email' => 'vcalvete@clinicahispano.com.ar',
-            'role_id' => Role::ADMINISTRATIVO,
+        $adrian->roles()->attach(Role::PROFESIONAL);
+
+        $analia = User::factory()->create([
+            'name' => 'Tridenti Analia',
+            'email' => 'internacion@clinicahispano.com.ar',
         ]);
+
+        $analia->roles()->attach(Role::ADMINISTRATIVO);
     }
 }
